@@ -33,12 +33,18 @@
         android:textColor="@color/textPrimary"
         android:text="@string/how_do_you_feel"/>
 
-    <AutoCompleteTextView
-        android:id="@+id/feeling_input"
+    <!--<AutoCompleteTextView-->
+        <!--android:id="@+id/feeling_input"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:inputType="textAutoComplete"-->
+        <!--android:textColor="@color/textPrimary"/>-->
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textAutoComplete"
-        android:textColor="@color/textPrimary"/>
+        android:layout_height="match_parent"
+        android:id="@+id/emotion_list">
 
+
+    </ListView>
 
 </LinearLayout>

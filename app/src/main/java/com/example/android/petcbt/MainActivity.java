@@ -2,15 +2,19 @@ package com.example.android.petcbt;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageView catView;
 //    private EditText describeFeeling;
-    private String[] negativeWords = {"miserable", "worthless"};
-    private String[] positiveWords = {"happy", "content"};
+    final private String[] negativeWords = {"miserable", "worthless"};
+    final private String[] positiveWords = {"happy", "content"};
+    final static private String[] allWords = {"miserable", "worthless", "happy", "content"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +23,20 @@ public class MainActivity extends AppCompatActivity {
 
         catView = (ImageView) findViewById(R.id.cat);
 //        describeFeeling = (EditText) findViewById(R.id.describe_feeling);
+
+        populationEmotionList();
+
     }
 
 
+    void populationEmotionList() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.emotion_list_item, allWords);
+//
+        ListView listView = (ListView) findViewById(R.id.emotion_list);
+        listView.setAdapter(adapter);
 
+    }
 
     // read the text, if the string is in Negative or Positive, change the cat's appearance
     void evaluateFeeling(String text) {
@@ -42,12 +56,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setCatEmotionToPositive() {
-        // change image to positive image
+        catView = (ImageView) findViewById(R.id.cat);
+        catView.setImageResource(R.drawable.cat);
     }
 
     void setCatEmotionToNegative() {
-        // change image to negative image
+        catView = (ImageView) findViewById(R.id.cat);
+        catView.setImageResource(R.drawable.sad);
     }
+
+
 
 
 }
