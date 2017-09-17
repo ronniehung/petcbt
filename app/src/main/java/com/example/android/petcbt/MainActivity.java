@@ -31,22 +31,17 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView catView;
-//    private EditText describeFeeling;
     private ArrayList<String> allWords;
     private HashMap<String, String> statementsToRemarks;
     private HashMap<String, String> statementsToSuggestions;
     private HashMap<String, String> statementsToQualities;
 
-//    final private String[] sampleListForAutoComplete = {
-//            "I feel bad about myself",
-//            "I'm enjoying life"
-//    };
-
-
     TextView feelingInputText, remarkText, suggestionText;
     AutoCompleteTextView feelingInput;
     ExpandedListView emotionList;
     Button backButton;
+    LinearLayout replyContainer;
+    RelativeLayout welcomeMessageContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +54,9 @@ public class MainActivity extends AppCompatActivity {
         statementsToRemarks = new HashMap<>();
         statementsToSuggestions = new HashMap<>();
         statementsToQualities = new HashMap<>();
-//        describeFeeling = (EditText) findViewById(R.id.describe_feeling);
 
         populateEmotionStringList();
         populateEmotionListView();
-
-        // ignore all this for now
 
         feelingInputText = (TextView) findViewById(R.id.feeling_input_label);
         feelingInput = (AutoCompleteTextView) findViewById(R.id.feeling_input);
@@ -72,11 +64,30 @@ public class MainActivity extends AppCompatActivity {
         remarkText = (TextView) findViewById(R.id.remark);
         suggestionText = (TextView) findViewById(R.id.suggestion);
         backButton = (Button) findViewById(R.id.backBtn);
-
+        replyContainer = (LinearLayout) findViewById(R.id.reply_container);
+        welcomeMessageContainer = (RelativeLayout) findViewById(R.id.welcome_message_container);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.emotion_list_autocomplete_item, allWords);
         feelingInput.setAdapter(adapter);
+
+//        feelingInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                String feeling = allWords.get(i);
+//                String quality = statementsToQualities.get(feeling);
+//                String remark = statementsToRemarks.get(feeling);
+//                String suggestion = statementsToSuggestions.get(feeling);
+//
+//                remarkText.setText(remark);
+//                suggestionText.setText(suggestion);
+//
+//                hideFeelingInputs();
+//                setCatEmotion(quality);
+//
+//
+//            }
+//        });
 
 
     }
@@ -85,35 +96,33 @@ public class MainActivity extends AppCompatActivity {
         feelingInputText.setVisibility(View.GONE);
         feelingInput.setVisibility(View.GONE);
         emotionList.setVisibility(View.GONE);
+        welcomeMessageContainer.setVisibility(View.GONE);
 
-        remarkText.setVisibility(View.VISIBLE);
-        suggestionText.setVisibility(View.VISIBLE);
-        backButton.setVisibility(View.VISIBLE);
+        replyContainer.setVisibility(View.VISIBLE);
     }
 
     public void showFeelingInputs(View v) {
         feelingInputText.setVisibility(View.VISIBLE);
         feelingInput.setVisibility(View.VISIBLE);
         emotionList.setVisibility(View.VISIBLE);
+        welcomeMessageContainer.setVisibility(View.VISIBLE);
 
-        remarkText.setVisibility(View.GONE);
-        suggestionText.setVisibility(View.GONE);
-        backButton.setVisibility(View.GONE);
+        replyContainer.setVisibility(View.GONE);
+
     }
 
     public String[] toStringArray(JSONArray array) {
-        if(array==null)
+        if(array == null)
             return null;
 
-        String[] arr=new String[array.length()];
-        for(int i=0; i<arr.length; i++) {
-            arr[i]=array.optString(i);
+        String[] arr = new String[array.length()];
+        for(int i=0; i < arr.length; i++) {
+            arr[i] = array.optString(i);
         }
         return arr;
     }
 
     void populateEmotionStringList() {
-        // read json
         String json = null;
         try {
             InputStream is = getAssets().open("keys.json");
@@ -122,14 +131,11 @@ public class MainActivity extends AppCompatActivity {
             is.read(buffer);
             is.close();
             json = new String(buffer, "UTF-8");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
         try {
-
             JSONArray strings = new JSONArray(json);
 
             for (int i = 0; i < strings.length(); i++) {
@@ -143,14 +149,10 @@ public class MainActivity extends AppCompatActivity {
                 statementsToSuggestions.put(statement, suggestion);
                 statementsToQualities.put(statement, quality);
             }
-
         } catch (org.json.JSONException e) {
             e.printStackTrace();
         }
-
-
     }
-
 
     void populateEmotionListView() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -166,10 +168,6 @@ public class MainActivity extends AppCompatActivity {
                 String quality = statementsToQualities.get(feeling);
                 String remark = statementsToRemarks.get(feeling);
                 String suggestion = statementsToSuggestions.get(feeling);
-                //String response = Cat.getResponseFromFeeling(feeling);
-                //String response = "Test";
-                //TextView welcomeMessage = (TextView) findViewById(R.id.welcome_message);
-                //welcomeMessage.setText(response);
 
                 remarkText.setText(remark);
                 suggestionText.setText(suggestion);

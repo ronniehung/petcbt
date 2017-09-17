@@ -1,21 +1,32 @@
 [
   {
-    "statement": "I feel bad about myself",
+    "statement": "I feel nervous, anxious, or on edge",
     "quality": "negative",
-    "remark": "sorry to hear that",
-    "suggestion": "nervousness"
-  },
-  {
-    "statement": "I'm enjoying life",
-    "quality": "positive",
-    "remark": "cool",
-    "suggestion": "I hope you continue to be happy."
+    "remark": "I am sorry that you are feeling that way. I don’t know what may be going on in your life right now, but I want you to know that you are very brave to stand up to these challenges. Although I am only a talking cat, I want to join you on your journey through these hurdles, and hopefully help make them a bit more bearable!",
+    "suggestion": "One thing that I often try when I am feeling very on edge is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
   },
   {
     "statement": "I feel I can't stop worrying or control my worrying",
     "quality": "negative",
     "remark": "Mmmmm… this sounds like a tough one. I am not sure what is causing you to be worried. I don’t have a lot of experience with worrying about human things, but occasionally I do worry about if I will be having tuna today or just the regular. When I feel there are a lot of thoughts flooding through my head like a ball of yarn, I find it useful to try to slow things down.",
     "suggestion": "One thing that I often try when I want to slow things down is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
-
+  },
+  {
+    "statement": "I feel that I am worrying too much about different things",
+    "quality": "negative",
+    "remark": "Mmmmm… this sounds like a tough one. I am not sure what is causing you to be worried. I don’t have a lot of experience with worrying about human things, but occasionally I do worry about if I will be having tuna today or just the regular. When I feel there are a lot of thoughts flooding through my head like a ball of yarn, I find it useful to try to slow things down.",
+    "suggestion": "One thing that I often try when I want to slow things down is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+  },
+  {
+    "statement": "I find it difficult to relax",
+    "quality": "negative",
+    "remark": "Mmmmm… this is something that is very foreign to me, since that is what I do for the majority of the day. Is there something that is really stressful going on in your life? I am sorry that you are having this kind of problem. I really can’t imagine how life would be like if we can’t relax. Other cats have told me how when they can’t relax, they sometimes end up drowning themselves in front of the television or watching cat videos on the internet, but they told me that it didn’t really make them feel relaxed afterwards.",
+    "suggestion": "One thing that I often try when I want to relax is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+  },
+  {
+    "statement": "I feel restless, sometimes even hard to just sit still",
+    "quality": "negative",
+    "remark": "Mmmm.. I often feel this way too! Especially when I hear the car coming into the driveway with this weeks batch of fresh cat food! Although, you might be feeling something more serious than something as simple as this! Some of my cat friends told me this technique to help calm the nerves and I think it might help you too!",
+    "suggestion": "This technique is one that was passed down through generations of cats. It is called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
   }
 ]

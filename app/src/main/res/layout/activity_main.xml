@@ -48,15 +48,15 @@
                 android:id="@+id/reply_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/backBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="back"
-                    android:onClick="showFeelingInputs"
-                    android:visibility="gone"/>
+                    android:text="@string/go_back"
+                    android:onClick="showFeelingInputs" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,16 +64,14 @@
                     android:background="@android:color/white"
                     android:padding="16dp"
                     android:layout_marginBottom="5dp"
-                    android:id="@+id/remark"
-                    android:visibility="gone"/>
+                    android:id="@+id/remark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
                     android:padding="16dp"
-                    android:id="@+id/suggestion"
-                    android:visibility="gone"/>
+                    android:id="@+id/suggestion" />
 
             </LinearLayout>
 
@@ -82,7 +80,7 @@
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="-50dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/happy_cat"
                 android:layout_centerInParent="true"/>
 
@@ -92,7 +90,7 @@
                 android:padding="16dp"
                 android:textColor="@color/textPrimary"
                 android:id="@+id/feeling_input_label"
-                android:text="Type an adjective or emotion" />
+                android:text="@string/type_emotion" />
 
             <AutoCompleteTextView
                 android:id="@+id/feeling_input"
