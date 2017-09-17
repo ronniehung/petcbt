@@ -1,15 +1,21 @@
 package com.example.android.petcbt;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+<<<<<<< HEAD
+=======
 import android.widget.Button;
 import android.widget.EditText;
+>>>>>>> efe6e4dad624b28b889281b13b8abb66e4c572fb
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,15 +24,10 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 setCatEmotion(quality);
             }
         });
+
     }
 
     public void hideFeelingInputs() {
@@ -170,5 +172,23 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout showLayout = (RelativeLayout) findViewById(R.id.welcome_message_container);
         hideLayout.setVisibility(View.GONE);
         showLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.toDoBtn) {
+            Log.d("####", "Ronnie is so cool right?");
+            startActivity(new Intent(this, ToDoListActivity.class));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
