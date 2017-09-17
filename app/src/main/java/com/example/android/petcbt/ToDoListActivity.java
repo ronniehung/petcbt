@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class ToDoListActivity extends AppCompatActivity {
 
     private ArrayList<String> todos;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,10 @@ public class ToDoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_to_do_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        todos = new ArrayList<>();
+        adapter = new ArrayAdapter<String>(this,
+                R.layout.emotion_list_autocomplete_item, todos);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +46,8 @@ public class ToDoListActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String task = String.valueOf(taskEditText.getText());
-                                Log.d("####","Task to add: " + task);
+                                todos.add(task);
+                                adapter.notifyDataSetChanged();
                             }
                         })
                         .setNegativeButton("Cancel", null)
@@ -51,21 +57,14 @@ public class ToDoListActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        todos = new ArrayList<>();
 
-        // sample data
-        todos.add("x");
-        todos.add("y");
-        todos.add("z");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.emotion_list_autocomplete_item, todos);
 
         ListView todoListView = (ListView) findViewById(R.id.todo_list);
         todoListView.setDivider(null);
         todoListView.setDividerHeight(0);
         todoListView.setAdapter(adapter);
     }
+
 
 
 
