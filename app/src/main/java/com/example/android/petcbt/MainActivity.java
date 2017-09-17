@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     final private String[] positiveWords = {"happy", "content"};
     private String[] allWords;
 
+    final private String[] sampleListForAutoComplete = {
+            "I feel bad about myself",
+            "I'm enjoying life"
+    };
+
 
 
     @Override
@@ -40,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
         populateEmotionStringList();
         populateEmotionListView();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.emotion_list_autocomplete_item, sampleListForAutoComplete);
+
+        AutoCompleteTextView autoCompleteView =
+                (AutoCompleteTextView ) findViewById(R.id.feeling_input);
+        autoCompleteView.setAdapter(adapter);
 
     }
 

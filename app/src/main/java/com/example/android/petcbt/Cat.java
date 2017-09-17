@@ -5,6 +5,9 @@ package com.example.android.petcbt;
  */
 
 public class Cat {
+
+    HashMap<String, String> emotionKeyWordToSuggestion = new HashMap<String, String>();
+
     String makeWittyRemark() {
         // makes a witty remark
         return "Meow";
@@ -21,8 +24,14 @@ public class Cat {
         return feeling;
     }
 
-    /* TODO:
-     * 1) Read an excel file to get a dictionary for responses
-     *
-     */
+    // getSuggestionFromSuggestionType(String suggestionType) {
+    //    let suggestions <- hashmap that maps from suggestionType to a suggestion String
+    //    String suggestion = suggestions[suggestionType];
+    //    return suggestion;
+    // }
+
+    String getSuggestionFromEmotionKeyWord(String emotionKeyWord) {
+        // returns value paired with given emotionKeyWord in hashmap that maps from suggestionType to a suggestion String
+        return this.emotionKeyWordToSuggestion.get(suggestionType);
+    }
 }
