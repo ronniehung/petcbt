@@ -12,15 +12,23 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class MainActivity extends AppCompatActivity {
 
     private ImageView catView;
 //    private EditText describeFeeling;
     final private String[] negativeWords = {"miserable", "worthless"};
     final private String[] positiveWords = {"happy", "content"};
-    final static private String[] allWords = {
-            "miserable", "worthless", "happy", "content"
-    };
+    private String[] allWords;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +38,60 @@ public class MainActivity extends AppCompatActivity {
         catView = (ImageView) findViewById(R.id.cat);
 //        describeFeeling = (EditText) findViewById(R.id.describe_feeling);
 
-        populationEmotionList();
+        populateEmotionStringList();
+        populateEmotionListView();
 
     }
 
+    public String[] toStringArray(JSONArray array) {
+        if(array==null)
+            return null;
 
-    void populationEmotionList() {
+        String[] arr=new String[array.length()];
+        for(int i=0; i<arr.length; i++) {
+            arr[i]=array.optString(i);
+        }
+        return arr;
+    }
+
+    void populateEmotionStringList() {
+        // read json
+        String json = null;
+        try {
+            InputStream is = getAssets().open("keys.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            JSONArray strings = new JSONArray(json);
+            allWords = toStringArray(strings);
+
+
+
+        } catch (org.json.JSONException e) {
+            e.printStackTrace();
+        }
+
+        if (json != null) {
+            // convert string into JSONArray[]
+
+        }
+    }
+
+
+    void populateEmotionListView() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.emotion_list_item, allWords);
 
         ListView listView = (ListView) findViewById(R.id.emotion_list);
         listView.setAdapter(adapter);
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
