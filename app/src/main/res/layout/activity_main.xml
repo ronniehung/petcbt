@@ -14,11 +14,9 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
-
         android:textColor="@color/textPrimary"
-
         android:textSize="24sp"
-        android:text="Welcome back!" />
+        android:text="How are you feeling right now?" />
 
     <ImageView
         android:id="@+id/cat"
@@ -31,7 +29,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textColor="@color/textPrimary"
-        android:text="@string/how_do_you_feel"/>
+        android:text="Type an adjective or emotion"/>
 
     <!--<AutoCompleteTextView-->
         <!--android:id="@+id/feeling_input"-->
@@ -43,8 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/emotion_list">
-
-
     </ListView>
 
 </LinearLayout>
