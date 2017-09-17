@@ -20,9 +20,9 @@
 
 
             <RelativeLayout
+                android:id="@+id/welcome_message_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -45,24 +45,32 @@
             </RelativeLayout>
             
             <LinearLayout
+                android:id="@+id/reply_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/backBtn"
+                    android:onClick="goBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<---"/>
+                    android:text="back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="16dp"
+                    android:layout_marginBottom="5dp"
                     android:id="@+id/remark"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="16dp"
                     android:id="@+id/suggestion"/>
 
             </LinearLayout>

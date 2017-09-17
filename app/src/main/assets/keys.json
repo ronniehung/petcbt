@@ -12,5 +12,3 @@
         "suggestion": "I hope you continue to be happy."
     }
 ]
-
-intent.putExtra(Extra.Text, "I hope you continue to be happy.... blah blah blah");

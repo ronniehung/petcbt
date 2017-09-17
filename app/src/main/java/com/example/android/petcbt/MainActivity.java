@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -20,6 +22,8 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -154,7 +158,10 @@ public class MainActivity extends AppCompatActivity {
         catView.setImageResource(R.drawable.sad_cat);
     }
 
-
-
-
+    void goBack(View view) {
+        LinearLayout hideLayout = (LinearLayout) findViewById(R.id.reply_container);
+        RelativeLayout showLayout = (RelativeLayout) findViewById(R.id.welcome_message_container);
+        hideLayout.setVisibility(View.GONE);
+        showLayout.setVisibility(View.VISIBLE);
+    }
 }
