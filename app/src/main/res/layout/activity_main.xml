@@ -98,7 +98,6 @@
                 android:theme="@style/Autocomplete"/>
 
 
-
         </LinearLayout>
 
     </ScrollView>
