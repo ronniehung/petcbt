@@ -23,7 +23,6 @@ import java.util.Arrays;
 public class ToDoListActivity extends AppCompatActivity {
 
     private ArrayList<String> todos;
-    //private CheckBoxAdapter adapter;
     private ArrayAdapter adapter;
     private int score;
     public TextView scoreboard;
@@ -61,16 +60,11 @@ public class ToDoListActivity extends AppCompatActivity {
         String mScore = mPrefs.getString("score", "0");
         score = Integer.parseInt(mScore);
 
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        //adapter = new CheckBoxAdapter(this, todos);
         adapter = new ArrayAdapter<>(this, R.layout.todo_list_item, todos);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -86,7 +80,7 @@ public class ToDoListActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String task = String.valueOf(taskEditText.getText());
-                                todos.add(task);
+                                todos.add("- " + task);
                                 adapter.notifyDataSetChanged();
                             }
                         })
@@ -98,10 +92,7 @@ public class ToDoListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ListView todoListView = (ListView) findViewById(R.id.todo_list);
-        todoListView.setDivider(null);
-        todoListView.setDividerHeight(0);
         todoListView.setAdapter(adapter);
-//        todoListView.setItemsCanFocus(false);
 
 
         todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -115,30 +106,6 @@ public class ToDoListActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-//        CheckBox checkedItem = (CheckBox) findViewById(R.id.toDoItem);
-//        checkedItem.setOnClickListener(new AdapterView.OnClickListener() {
-////            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-////
-////                todos.remove(i);
-////                adapter.notifyDataSetChanged();
-////                points += TODO_POINT_VALUE;
-////                updateScoreboard();
-////
-////            }
-//
-//
-//            @Override
-//            public void onClick(View view) {
-//                todos.remove(i);
-//                adapter.notifyDataSetChanged();
-//                points += TODO_POINT_VALUE;
-//                updateScoreboard();
-//            }
-//        });
-
 
         scoreboard = (TextView) findViewById(R.id.scoreboard);
         updateScoreboard();
