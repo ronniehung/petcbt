@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
 //        describeFeeling = (EditText) findViewById(R.id.describe_feeling);
     }
 
-
-
-
     // read the text, if the string is in Negative or Positive, change the cat's appearance
     void evaluateFeeling(String text) {
         for (String negativeWord : negativeWords) {
