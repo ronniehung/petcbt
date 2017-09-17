@@ -1,14 +1,21 @@
 [
-    {
-        "statement": "I feel bad about myself",
-        "quality": "negative",
-        "remark": "sorry to hear that",
-        "suggestion": "nervousness"
-    },
-    {
-        "statement": "I'm enjoying life",
-        "quality": "positive",
-        "remark": "cool",
-        "suggestion": "I hope you continue to be happy."
-    }
+  {
+    "statement": "I feel bad about myself",
+    "quality": "negative",
+    "remark": "sorry to hear that",
+    "suggestion": "nervousness"
+  },
+  {
+    "statement": "I'm enjoying life",
+    "quality": "positive",
+    "remark": "cool",
+    "suggestion": "I hope you continue to be happy."
+  },
+  {
+    "statement": "I feel I can't stop worrying or control my worrying",
+    "quality": "negative",
+    "remark": "Mmmmm… this sounds like a tough one. I am not sure what is causing you to be worried. I don’t have a lot of experience with worrying about human things, but occasionally I do worry about if I will be having tuna today or just the regular. When I feel there are a lot of thoughts flooding through my head like a ball of yarn, I find it useful to try to slow things down.",
+    "suggestion": "One thing that I often try when I want to slow things down is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+
+  }
 ]

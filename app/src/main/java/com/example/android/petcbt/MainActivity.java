@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,6 +23,8 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
@@ -29,19 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView catView;
 //    private EditText describeFeeling;
-    final private String[] negativeWords = {"miserable", "worthless"};
-    final private String[] positiveWords = {"happy", "content"};
-    private String[] allWords;
+    private ArrayList<String> allWords;
+    private HashMap<String, String> statementsToRemarks;
+    private HashMap<String, String> statementsToSuggestions;
+    private HashMap<String, String> statementsToQualities;
 
-    final private String[] sampleListForAutoComplete = {
-            "I feel bad about myself",
-            "I'm enjoying life"
-    };
+//    final private String[] sampleListForAutoComplete = {
+//            "I feel bad about myself",
+//            "I'm enjoying life"
+//    };
 
 
-    TextView feelingInputLabel, remarkText, suggestionText;
+    TextView feelingInputText, remarkText, suggestionText;
     AutoCompleteTextView feelingInput;
     ExpandedListView emotionList;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,51 +54,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         catView = (ImageView) findViewById(R.id.cat);
+
+        allWords = new ArrayList<>();
+        statementsToRemarks = new HashMap<>();
+        statementsToSuggestions = new HashMap<>();
+        statementsToQualities = new HashMap<>();
 //        describeFeeling = (EditText) findViewById(R.id.describe_feeling);
 
         populateEmotionStringList();
         populateEmotionListView();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.emotion_list_autocomplete_item, sampleListForAutoComplete);
-
-        AutoCompleteTextView autoCompleteView =
-                (AutoCompleteTextView ) findViewById(R.id.feeling_input);
-        autoCompleteView.setAdapter(adapter);
-
         // ignore all this for now
-        TextView remark = (TextView) findViewById(R.id.remark);
-        remark.setText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
-        TextView suggestion = (TextView) findViewById(R.id.suggestion);
-        suggestion.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 
-        feelingInputLabel = (TextView) findViewById(R.id.feeling_input_label);
+        feelingInputText = (TextView) findViewById(R.id.feeling_input_label);
         feelingInput = (AutoCompleteTextView) findViewById(R.id.feeling_input);
         emotionList = (ExpandedListView) findViewById(R.id.emotion_list);
         remarkText = (TextView) findViewById(R.id.remark);
         suggestionText = (TextView) findViewById(R.id.suggestion);
+        backButton = (Button) findViewById(R.id.backBtn);
 
 
-        hideFeelingInputs();
-        showFeelingInputs();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.emotion_list_autocomplete_item, allWords);
+        feelingInput.setAdapter(adapter);
+
+
     }
 
-    void hideFeelingInputs() {
-        feelingInputLabel.setVisibility(View.GONE);
+    public void hideFeelingInputs() {
+        feelingInputText.setVisibility(View.GONE);
         feelingInput.setVisibility(View.GONE);
         emotionList.setVisibility(View.GONE);
 
         remarkText.setVisibility(View.VISIBLE);
         suggestionText.setVisibility(View.VISIBLE);
+        backButton.setVisibility(View.VISIBLE);
     }
 
-    void showFeelingInputs() {
-        feelingInputLabel.setVisibility(View.VISIBLE);
+    public void showFeelingInputs(View v) {
+        feelingInputText.setVisibility(View.VISIBLE);
         feelingInput.setVisibility(View.VISIBLE);
         emotionList.setVisibility(View.VISIBLE);
 
         remarkText.setVisibility(View.GONE);
         suggestionText.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
     }
 
     public String[] toStringArray(JSONArray array) {
@@ -122,17 +127,28 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
         try {
+
             JSONArray strings = new JSONArray(json);
-            allWords = toStringArray(strings);
+
+            for (int i = 0; i < strings.length(); i++) {
+                String statement = strings.getJSONObject(i).getString("statement");
+                String remark = strings.getJSONObject(i).getString("remark");
+                String suggestion = strings.getJSONObject(i).getString("suggestion");
+                String quality = strings.getJSONObject(i).getString("quality");
+
+                allWords.add(statement);
+                statementsToRemarks.put(statement, remark);
+                statementsToSuggestions.put(statement, suggestion);
+                statementsToQualities.put(statement, quality);
+            }
+
         } catch (org.json.JSONException e) {
             e.printStackTrace();
         }
 
-        if (json != null) {
-            // convert string into JSONArray[]
 
-        }
     }
 
 
@@ -146,29 +162,32 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String feeling = allWords[i];
-                String response = Cat.getResponseFromFeeling(feeling);
-                TextView welcomeMessage = (TextView) findViewById(R.id.welcome_message);
-                welcomeMessage.setText(response);
+                String feeling = allWords.get(i);
+                String quality = statementsToQualities.get(feeling);
+                String remark = statementsToRemarks.get(feeling);
+                String suggestion = statementsToSuggestions.get(feeling);
+                //String response = Cat.getResponseFromFeeling(feeling);
+                //String response = "Test";
+                //TextView welcomeMessage = (TextView) findViewById(R.id.welcome_message);
+                //welcomeMessage.setText(response);
+
+                remarkText.setText(remark);
+                suggestionText.setText(suggestion);
+
+                hideFeelingInputs();
+                setCatEmotion(quality);
             }
         });
     }
 
     // read the text, if the string is in Negative or Positive, change the cat's appearance
-    void evaluateFeeling(String text) {
-        for (String negativeWord : negativeWords) {
-            if (text == negativeWord) {
-                setCatEmotionToNegative();
-                return;
-            }
+    void setCatEmotion(String quality) {
+        if (quality.equals("positive")) {
+            setCatEmotionToPositive();
+        } else if (quality.equals("negative")) {
+            setCatEmotionToNegative();
         }
 
-        for (String positiveWord : positiveWords) {
-            if (text == positiveWord) {
-                setCatEmotionToPositive();
-                return;
-            }
-        }
     }
 
     void setCatEmotionToPositive() {
