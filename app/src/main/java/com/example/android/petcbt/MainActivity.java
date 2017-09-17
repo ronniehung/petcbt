@@ -9,6 +9,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView catView;
 //    private EditText describeFeeling;
+    private String[] negativeWords = {"miserable", "worthless"};
+    private String[] positiveWords = {"happy", "content"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    // TODO: implement cat changing
+
+    // read the text, if the string is in Negative or Positive, change the cat's appearance
+    void evaluateFeeling(String text) {
+        for (String negativeWord : negativeWords) {
+            if (text == negativeWord) {
+                setCatEmotionToNegative();
+            }
+        }
+
+        for (String positiveWord : positiveWords) {
+            if (text == positiveWord) {
+                setCatEmotionToPositive();
+            }
+        }
+    }
+
+    void setCatEmotionToPositive() {
+        // change image to positive image
+    }
+
+    void setCatEmotionToNegative() {
+        // change image to negative image
+    }
 
 
 }
