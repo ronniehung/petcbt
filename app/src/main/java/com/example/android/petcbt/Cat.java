@@ -14,11 +14,11 @@ public class Cat {
         return "Life is great!";
     }
 
-    String getResponseFromFeeling(String feeling) {
+    static String getResponseFromFeeling(String feeling) {
         // e.g. feeling <- "I feel miserable"
         // lookup the appropriate response for "I feel responsibe"
         // return response;
-        return "Hello World";
+        return feeling;
     }
 
     /* TODO:

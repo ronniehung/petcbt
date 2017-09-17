@@ -8,52 +8,66 @@
     android:orientation="vertical"
     tools:context="com.example.android.petcbt.MainActivity">
 
-    <RelativeLayout
+    <ScrollView android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/welcome_message"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp"
-            android:textColor="@color/textPrimary"
-            android:textSize="24sp"
-            android:text="How are you feeling right now?" />
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/speech_bubble_300px"/>
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/cat"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:src="@drawable/cat"/>
+                <TextView
+                    android:id="@+id/welcome_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="16dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="24sp"
+                    android:text="@string/how_do_you_feel" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textColor="@color/textPrimary"
-        android:text="Type an adjective or emotion"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/speech_bubble_300px"/>
+            </RelativeLayout>
 
-    <AutoCompleteTextView
-        android:id="@+id/feeling_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textAutoComplete"
-        android:textColor="@color/textPrimary"
-        android:theme="@style/Autocomplete"/>
+            <ImageView
+                android:id="@+id/cat"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:src="@drawable/cat"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/emotion_list">
-    </ListView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@color/textPrimary"
+                android:text="Type an adjective or emotion"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/feeling_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"
+                android:textColor="@color/textPrimary"
+                android:theme="@style/Autocomplete"/>
+
+            <com.example.android.petcbt.ExpandedListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:padding="0px"
+                android:id="@+id/emotion_list" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

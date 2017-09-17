@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         catView = (ImageView) findViewById(R.id.cat);
 //        describeFeeling = (EditText) findViewById(R.id.describe_feeling);
 
@@ -46,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String feeling = allWords[i];
-                
+                String response = Cat.getResponseFromFeeling(feeling);
+                TextView welcomeMessage = (TextView) findViewById(R.id.welcome_message);
+                welcomeMessage.setText(response);
             }
         });
     }
