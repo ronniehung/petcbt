@@ -14,7 +14,14 @@ public class MainActivity extends AppCompatActivity {
 //    private EditText describeFeeling;
     final private String[] negativeWords = {"miserable", "worthless"};
     final private String[] positiveWords = {"happy", "content"};
-    final static private String[] allWords = {"miserable", "worthless", "happy", "content"};
+    final static private String[] allWords = {
+            "miserable", "worthless", "happy", "content",
+            "miserable", "worthless", "happy", "content",
+            "miserable", "worthless", "happy", "content",
+            "miserable", "worthless", "happy", "content",
+            "miserable", "worthless", "happy", "content",
+            "miserable", "worthless", "happy", "content"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
