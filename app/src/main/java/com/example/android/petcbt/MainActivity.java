@@ -29,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
         for (String negativeWord : negativeWords) {
             if (text == negativeWord) {
                 setCatEmotionToNegative();
+                return;
             }
         }
 
         for (String positiveWord : positiveWords) {
             if (text == positiveWord) {
                 setCatEmotionToPositive();
+                return;
             }
         }
     }

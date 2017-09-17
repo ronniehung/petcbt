@@ -5,4 +5,10 @@ package com.example.android.petcbt;
  */
 
 public class Cat {
+    void makeWittyRemark() {
+        // makes a witty remark
+    }
+    void giveReinforcement() {
+        // makes a positive reinforcing remark when it's happy
+    }
 }
