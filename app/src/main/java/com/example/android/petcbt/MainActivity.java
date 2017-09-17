@@ -11,11 +11,8 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-<<<<<<< HEAD
-=======
 import android.widget.Button;
 import android.widget.EditText;
->>>>>>> efe6e4dad624b28b889281b13b8abb66e4c572fb
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;

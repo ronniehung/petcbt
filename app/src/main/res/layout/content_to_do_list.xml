@@ -8,4 +8,11 @@
     tools:context="com.example.android.petcbt.ToDoListActivity"
     tools:showIn="@layout/activity_to_do_list">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/todo_list">
+
+    </ListView>
+
 </android.support.constraint.ConstraintLayout>

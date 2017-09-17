@@ -9,9 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class ToDoListActivity extends AppCompatActivity {
+
+    private ArrayList<String> todos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,23 @@ public class ToDoListActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        todos = new ArrayList<>();
+
+        // sample data
+        todos.add("x");
+        todos.add("y");
+        todos.add("z");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.emotion_list_autocomplete_item, todos);
+
+        ListView todoListView = (ListView) findViewById(R.id.todo_list);
+        todoListView.setDivider(null);
+        todoListView.setDividerHeight(0);
+        todoListView.setAdapter(adapter);
     }
+
+
 
 }
