@@ -2,6 +2,9 @@ package com.example.android.petcbt;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,11 +18,6 @@ public class MainActivity extends AppCompatActivity {
     final private String[] negativeWords = {"miserable", "worthless"};
     final private String[] positiveWords = {"happy", "content"};
     final static private String[] allWords = {
-            "miserable", "worthless", "happy", "content",
-            "miserable", "worthless", "happy", "content",
-            "miserable", "worthless", "happy", "content",
-            "miserable", "worthless", "happy", "content",
-            "miserable", "worthless", "happy", "content",
             "miserable", "worthless", "happy", "content"
     };
 
@@ -39,10 +37,18 @@ public class MainActivity extends AppCompatActivity {
     void populationEmotionList() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.emotion_list_item, allWords);
-//
+
         ListView listView = (ListView) findViewById(R.id.emotion_list);
         listView.setAdapter(adapter);
 
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String feeling = allWords[i];
+                
+            }
+        });
     }
 
     // read the text, if the string is in Negative or Positive, change the cat's appearance

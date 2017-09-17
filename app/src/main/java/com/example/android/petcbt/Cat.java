@@ -14,7 +14,15 @@ public class Cat {
         return "Life is great!";
     }
 
+    String getResponseFromFeeling(String feeling) {
+        // e.g. feeling <- "I feel miserable"
+        // lookup the appropriate response for "I feel responsibe"
+        // return response;
+        return "Hello World";
+    }
+
     /* TODO:
-     * 1) Read an excel file to get k, v pairs for
+     * 1) Read an excel file to get a dictionary for responses
+     *
      */
 }
