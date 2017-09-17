@@ -1,6 +1,7 @@
 package com.example.android.petcbt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<String, String> statementsToRemarks;
     private HashMap<String, String> statementsToSuggestions;
     private HashMap<String, String> statementsToQualities;
+    private HashMap<String, String> statementsToTodos;
 
     TextView feelingInputText, remarkText, suggestionText;
     AutoCompleteTextView feelingInput;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         statementsToRemarks = new HashMap<>();
         statementsToSuggestions = new HashMap<>();
         statementsToQualities = new HashMap<>();
+        statementsToTodos = new HashMap<>();
 
         populateEmotionStringList();
 
@@ -73,15 +77,39 @@ public class MainActivity extends AppCompatActivity {
                 String quality = statementsToQualities.get(feeling);
                 String remark = statementsToRemarks.get(feeling);
                 String suggestion = statementsToSuggestions.get(feeling);
+                String todo = statementsToTodos.get(feeling);
 
                 remarkText.setText(remark);
                 suggestionText.setText(suggestion);
 
                 hideFeelingInputs();
                 setCatEmotion(quality);
+
+                // add a to-do behind the scenes
+                // get arr from getSharedPreferences
+                // arr.append(todo)
+                // set arr using getSharedPreferences.Editor
+
+                ArrayList<String> todosToBeAdded = new ArrayList<>();
+                todosToBeAdded.add(todo);
+                SharedPreferences mPrefs = getSharedPreferences("todos_to_be_added", 0);
+                SharedPreferences.Editor keyValuesEditor = mPrefs.edit();
+
+                for (String s : todosToBeAdded) {
+                    // use the name as the key, and the icon as the value
+                    keyValuesEditor.putString(s, s);
+                }
+                keyValuesEditor.commit();
+
+
+
+
+
+
+
+
             }
         });
-
     }
 
     public void hideFeelingInputs() {
@@ -135,11 +163,13 @@ public class MainActivity extends AppCompatActivity {
                 String remark = strings.getJSONObject(i).getString("remark");
                 String suggestion = strings.getJSONObject(i).getString("suggestion");
                 String quality = strings.getJSONObject(i).getString("quality");
+                String todo = strings.getJSONObject(i).getString("todo");
 
                 allWords.add(statement);
                 statementsToRemarks.put(statement, remark);
                 statementsToSuggestions.put(statement, suggestion);
                 statementsToQualities.put(statement, quality);
+                statementsToTodos.put(statement, todo);
             }
         } catch (org.json.JSONException e) {
             e.printStackTrace();
