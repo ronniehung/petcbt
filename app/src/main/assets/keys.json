@@ -2,17 +2,15 @@
     {
         "statement": "I feel bad about myself",
         "quality": "negative",
-        "comment": "sorry to hear that",
-        "type": "nervousness"
+        "remark": "sorry to hear that",
+        "suggestion": "nervousness"
     },
     {
         "statement": "I'm enjoying life",
         "quality": "positive",
-        "comment": "cool",
-        "response": "I hope you continue to be happy."
+        "remark": "cool",
+        "suggestion": "I hope you continue to be happy."
     }
 ]
 
-nervousness -> () -> "nervouness related response"
-
-
+intent.putExtra(Extra.Text, "I hope you continue to be happy.... blah blah blah");
