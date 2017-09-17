@@ -2,4 +2,7 @@
     <string name="app_name">PetCBT</string>
     <string name="how_do_you_feel">How do you feel?</string>
     <string name="describe_feeling">Type words that describe how you feel...</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_to_do_list">ToDoList</string>
 </resources>
