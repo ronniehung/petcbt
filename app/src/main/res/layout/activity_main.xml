@@ -9,8 +9,9 @@
     android:background="@color/colorPrimary"
     tools:context="com.example.android.petcbt.MainActivity">
 
-    <ScrollView android:layout_height="wrap_content"
+    <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,20 +28,20 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/speech_bubble"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/speech_bubble" />
 
                 <TextView
                     android:id="@+id/welcome_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="16dp"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="24sp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="25dp"
-                    android:text="@string/how_do_you_feel" />
+                    android:paddingLeft="16dp"
+                    android:paddingTop="16dp"
+                    android:text="@string/how_do_you_feel"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="24sp" />
 
             </RelativeLayout>
 
@@ -48,18 +49,19 @@
                 android:id="@+id/backBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/go_back"
                 android:onClick="showFeelingInputs"
-                android:visibility="invisible"/>
+                android:text="@string/go_back"
+                android:visibility="gone"
+                android:layout_marginBottom="35dp"/>
 
             <ImageView
                 android:id="@+id/cat"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="0dp"
-                android:src="@drawable/happy_cat"
-                android:layout_centerInParent="true"/>
+                android:layout_marginTop="-40dp"
+                android:src="@drawable/happy_cat" />
 
             <LinearLayout
                 android:id="@+id/reply_container"
@@ -67,27 +69,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="gone">
+
                 <TextView
+                    android:id="@+id/remark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
-                    android:padding="16dp"
-                    android:id="@+id/remark" />
+                    android:padding="16dp" />
+
                 <TextView
+                    android:id="@+id/suggestion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
-                    android:padding="16dp"
-                    android:id="@+id/suggestion" />
+                    android:padding="16dp" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/feeling_input_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:textColor="@color/textPrimary"
-                android:id="@+id/feeling_input_label"
-                android:text="@string/type_emotion" />
+                android:text="@string/type_emotion"
+                android:textColor="@color/textPrimary" />
 
             <AutoCompleteTextView
                 android:id="@+id/feeling_input"
@@ -95,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textAutoComplete"
                 android:textColor="@color/textPrimary"
-                android:theme="@style/Autocomplete"/>
+                android:theme="@style/Autocomplete" />
 
 
         </LinearLayout>
