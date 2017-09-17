@@ -183,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.toDoBtn) {
-            Log.d("####", "Ronnie is so cool right?");
             startActivity(new Intent(this, ToDoListActivity.class));
             return true;
         }
