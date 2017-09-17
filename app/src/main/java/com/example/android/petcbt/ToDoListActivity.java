@@ -34,15 +34,12 @@ public class ToDoListActivity extends AppCompatActivity {
 
 
         todos = new ArrayList<>();
-        adapter = new ArrayAdapter<String>(this,
-                R.layout.todo_list_item, todos);
+        adapter = new CheckBoxAdapter(this, todos);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
                 final EditText taskEditText = new EditText(ToDoListActivity.this);
                 AlertDialog dialog = new AlertDialog.Builder(ToDoListActivity.this)
                         .setTitle("Add a new task")
@@ -62,8 +59,6 @@ public class ToDoListActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
 
         ListView todoListView = (ListView) findViewById(R.id.todo_list);
         todoListView.setDivider(null);
@@ -90,8 +85,4 @@ public class ToDoListActivity extends AppCompatActivity {
     void updateScoreboard() {
         scoreboard.setText(Integer.valueOf(points).toString());
     }
-
-
-
-
 }
