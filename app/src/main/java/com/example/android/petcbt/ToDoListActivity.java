@@ -23,9 +23,10 @@ import java.util.Arrays;
 public class ToDoListActivity extends AppCompatActivity {
 
     private ArrayList<String> todos;
-    private CheckBoxAdapter adapter;
-    private int points;
-    private TextView scoreboard;
+    //private CheckBoxAdapter adapter;
+    private ArrayAdapter adapter;
+    private int score;
+    public TextView scoreboard;
     private final static int TODO_POINT_VALUE = 100;
 
     SharedPreferences mPrefs;
@@ -35,6 +36,8 @@ public class ToDoListActivity extends AppCompatActivity {
         String todosToString = todos.toString();
         // convert todos to string
         mEditor.putString("tag", todosToString).commit();
+        mEditor.putString("score", Integer.valueOf(score).toString()).commit();
+
         super.onDestroy();
     }
 
@@ -54,13 +57,21 @@ public class ToDoListActivity extends AppCompatActivity {
             todos = new ArrayList<>();
         }
 
+        // retrieve saved store
+        String mScore = mPrefs.getString("score", "0");
+        score = Integer.parseInt(mScore);
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
-        adapter = new CheckBoxAdapter(this, todos);
+        //adapter = new CheckBoxAdapter(this, todos);
+        adapter = new ArrayAdapter<>(this, R.layout.todo_list_item, todos);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -90,8 +101,7 @@ public class ToDoListActivity extends AppCompatActivity {
         todoListView.setDivider(null);
         todoListView.setDividerHeight(0);
         todoListView.setAdapter(adapter);
-        todoListView.setItemsCanFocus(false);
-
+//        todoListView.setItemsCanFocus(false);
 
 
         todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,11 +110,13 @@ public class ToDoListActivity extends AppCompatActivity {
 
                 todos.remove(i);
                 adapter.notifyDataSetChanged();
-                points += TODO_POINT_VALUE;
+                score += TODO_POINT_VALUE;
                 updateScoreboard();
 
             }
         });
+
+
 
 //        CheckBox checkedItem = (CheckBox) findViewById(R.id.toDoItem);
 //        checkedItem.setOnClickListener(new AdapterView.OnClickListener() {
@@ -127,12 +139,13 @@ public class ToDoListActivity extends AppCompatActivity {
 //            }
 //        });
 
-        points = 0;
+
         scoreboard = (TextView) findViewById(R.id.scoreboard);
         updateScoreboard();
+
     }
 
     void updateScoreboard() {
-        scoreboard.setText(Integer.valueOf(points).toString());
+        scoreboard.setText("Score: " + Integer.valueOf(score).toString());
     }
 }

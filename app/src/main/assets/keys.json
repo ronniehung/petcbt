@@ -3,30 +3,28 @@
     "statement": "I feel nervous, anxious, or on edge",
     "quality": "negative",
     "remark": "I am sorry that you are feeling that way. I don’t know what may be going on in your life right now, but I want you to know that you are very brave to stand up to these challenges. Although I am only a talking cat, I want to join you on your journey through these hurdles, and hopefully help make them a bit more bearable!",
-    "suggestion": "One thing that I often try when I am feeling very on edge is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+    "suggestion": "One thing that I often try when I am feeling very on edge is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!",
+    "todo": "4 Second Mindfulness Meditation"
   },
   {
     "statement": "I feel I can't stop worrying or control my worrying",
     "quality": "negative",
     "remark": "Mmmmm… this sounds like a tough one. I am not sure what is causing you to be worried. I don’t have a lot of experience with worrying about human things, but occasionally I do worry about if I will be having tuna today or just the regular. When I feel there are a lot of thoughts flooding through my head like a ball of yarn, I find it useful to try to slow things down.",
-    "suggestion": "One thing that I often try when I want to slow things down is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+    "suggestion": "One thing that I often try when I want to slow things down is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!",
+    "todo": "4 Second Mindfulness Meditation"
   },
   {
-    "statement": "I feel that I am worrying too much about different things",
+    "statement": "I am having low self esteem",
     "quality": "negative",
-    "remark": "Mmmmm… this sounds like a tough one. I am not sure what is causing you to be worried. I don’t have a lot of experience with worrying about human things, but occasionally I do worry about if I will be having tuna today or just the regular. When I feel there are a lot of thoughts flooding through my head like a ball of yarn, I find it useful to try to slow things down.",
-    "suggestion": "One thing that I often try when I want to slow things down is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+    "remark": "I am really sorry to hear that you are having low self esteem. This is something that I personally have struggled with since I was a kitten. While there were positive and negative messages given by teacher cats, parent cats and friend cats, the concept that I wasn’t good enough stuck with me.",
+    "suggestion": "I want you to know that you DO matter. And that you CAN do what you set your mind to. There are people who care about you, and that you are LOVED! You are accomplished and you are a worthy human being, so don’t let anyone else put you down. You DO matter!",
+    "todo": "You DO matter!"
   },
   {
-    "statement": "I find it difficult to relax",
+    "statement": "I don't feel like doing anything, I should just stay in bed today",
     "quality": "negative",
-    "remark": "Mmmmm… this is something that is very foreign to me, since that is what I do for the majority of the day. Is there something that is really stressful going on in your life? I am sorry that you are having this kind of problem. I really can’t imagine how life would be like if we can’t relax. Other cats have told me how when they can’t relax, they sometimes end up drowning themselves in front of the television or watching cat videos on the internet, but they told me that it didn’t really make them feel relaxed afterwards.",
-    "suggestion": "One thing that I often try when I want to relax is a mindfulness technique called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
-  },
-  {
-    "statement": "I feel restless, sometimes even hard to just sit still",
-    "quality": "negative",
-    "remark": "Mmmm.. I often feel this way too! Especially when I hear the car coming into the driveway with this weeks batch of fresh cat food! Although, you might be feeling something more serious than something as simple as this! Some of my cat friends told me this technique to help calm the nerves and I think it might help you too!",
-    "suggestion": "This technique is one that was passed down through generations of cats. It is called the “4 Second Cat meditation.” If you would like to give it a try. Try sitting in a comfortable position, close your eyes, take a deep breath with your nose for 4 seconds, hold your breath for 4 seconds, exhale with your mouth open for 4 seconds, and hold for 4 seconds. Repeat a few times and see how you feel afterwards!"
+    "remark": "Mmm that is a tricky one! It is something I often struggle with too as a cat. For cats we sometimes don’t want to do anything so we just stay in our cat bed all day. Although I am only a talking cat, I do hope that I can help you in becoming more motivated in doing things! Sometimes when we feel a particular emotion (or lack thereof—apathy), we believe that how we feel represents the reality in how we actually are!",
+    "suggestion": "I know this might sound like a can of tuna but let me try to explain myself a bit more clearly! When we believe that our thoughts to be reality, our logic becomes: I feel worthless, therefore I must be worthless. But that can’t be true can it? Since our feelings are actually a result from our own thoughts! Emotional Reasoning: A type of cognitive distortion where you assume your negative emotions necessarily reflect the way things really are “I feel it, therefore it must be true",
+    "todo": "Motivation will follow action!"
   }
 ]
