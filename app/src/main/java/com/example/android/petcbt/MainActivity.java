@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView feelingInputText, remarkText, suggestionText;
     AutoCompleteTextView feelingInput;
-    ExpandedListView emotionList;
     Button backButton;
     LinearLayout replyContainer;
     RelativeLayout welcomeMessageContainer;
@@ -56,11 +55,9 @@ public class MainActivity extends AppCompatActivity {
         statementsToQualities = new HashMap<>();
 
         populateEmotionStringList();
-        populateEmotionListView();
 
         feelingInputText = (TextView) findViewById(R.id.feeling_input_label);
         feelingInput = (AutoCompleteTextView) findViewById(R.id.feeling_input);
-        emotionList = (ExpandedListView) findViewById(R.id.emotion_list);
         remarkText = (TextView) findViewById(R.id.remark);
         suggestionText = (TextView) findViewById(R.id.suggestion);
         backButton = (Button) findViewById(R.id.backBtn);
@@ -71,31 +68,26 @@ public class MainActivity extends AppCompatActivity {
                 R.layout.emotion_list_autocomplete_item, allWords);
         feelingInput.setAdapter(adapter);
 
-//        feelingInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String feeling = allWords.get(i);
-//                String quality = statementsToQualities.get(feeling);
-//                String remark = statementsToRemarks.get(feeling);
-//                String suggestion = statementsToSuggestions.get(feeling);
-//
-//                remarkText.setText(remark);
-//                suggestionText.setText(suggestion);
-//
-//                hideFeelingInputs();
-//                setCatEmotion(quality);
-//
-//
-//            }
-//        });
+        feelingInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String feeling = allWords.get(i);
+                String quality = statementsToQualities.get(feeling);
+                String remark = statementsToRemarks.get(feeling);
+                String suggestion = statementsToSuggestions.get(feeling);
 
+                remarkText.setText(remark);
+                suggestionText.setText(suggestion);
 
+                hideFeelingInputs();
+                setCatEmotion(quality);
+            }
+        });
     }
 
     public void hideFeelingInputs() {
         feelingInputText.setVisibility(View.GONE);
         feelingInput.setVisibility(View.GONE);
-        emotionList.setVisibility(View.GONE);
         welcomeMessageContainer.setVisibility(View.GONE);
 
         replyContainer.setVisibility(View.VISIBLE);
@@ -104,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     public void showFeelingInputs(View v) {
         feelingInputText.setVisibility(View.VISIBLE);
         feelingInput.setVisibility(View.VISIBLE);
-        emotionList.setVisibility(View.VISIBLE);
         welcomeMessageContainer.setVisibility(View.VISIBLE);
 
         replyContainer.setVisibility(View.GONE);
@@ -152,30 +143,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (org.json.JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    void populateEmotionListView() {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.emotion_list_item, allWords);
-
-        ListView listView = (ListView) findViewById(R.id.emotion_list);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String feeling = allWords.get(i);
-                String quality = statementsToQualities.get(feeling);
-                String remark = statementsToRemarks.get(feeling);
-                String suggestion = statementsToSuggestions.get(feeling);
-
-                remarkText.setText(remark);
-                suggestionText.setText(suggestion);
-
-                hideFeelingInputs();
-                setCatEmotion(quality);
-            }
-        });
     }
 
     // read the text, if the string is in Negative or Positive, change the cat's appearance
