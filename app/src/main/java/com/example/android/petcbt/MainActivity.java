@@ -78,16 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 // find the index in the real array
                 String selected = (String) adapterView.getItemAtPosition(i);
                 int truePos = allWords.indexOf(selected);
-
                 String feeling = allWords.get(truePos);
 
                 String quality = statementsToQualities.get(feeling);
                 String remark = statementsToRemarks.get(feeling);
                 String suggestion = statementsToSuggestions.get(feeling);
                 String todo = statementsToTodos.get(feeling);
-
-                Log.d("####", "feeling: " + feeling);
-                Log.d("####", "remark: " + remark);
 
                 remarkText.setText(remark);
                 suggestionText.setText(suggestion);
@@ -110,13 +106,6 @@ public class MainActivity extends AppCompatActivity {
                     keyValuesEditor.putString(s, s);
                 }
                 keyValuesEditor.commit();
-
-
-
-
-
-
-
 
             }
         });
