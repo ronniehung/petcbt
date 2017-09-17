@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PetCBT</string>
+    <string name="how_do_you_feel">How do you feel?</string>
 </resources>
