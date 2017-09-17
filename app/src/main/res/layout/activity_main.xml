@@ -8,15 +8,25 @@
     android:orientation="vertical"
     tools:context="com.example.android.petcbt.MainActivity">
 
-    <TextView
-        android:id="@+id/welcome_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:textColor="@color/textPrimary"
-        android:textSize="24sp"
-        android:text="How are you feeling right now?" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/welcome_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:textColor="@color/textPrimary"
+            android:textSize="24sp"
+            android:text="How are you feeling right now?" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/speech_bubble_300px"/>
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/cat"
@@ -32,12 +42,14 @@
         android:textColor="@color/textPrimary"
         android:text="Type an adjective or emotion"/>
 
-    <!--<AutoCompleteTextView-->
-        <!--android:id="@+id/feeling_input"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:inputType="textAutoComplete"-->
-        <!--android:textColor="@color/textPrimary"/>-->
+    <AutoCompleteTextView
+        android:id="@+id/feeling_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"
+        android:textColor="@color/textPrimary"
+        android:theme="@style/Autocomplete"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
