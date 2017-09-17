@@ -32,12 +32,14 @@
         android:textColor="@color/textPrimary"
         android:text="Type an adjective or emotion"/>
 
-    <!--<AutoCompleteTextView-->
-        <!--android:id="@+id/feeling_input"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:inputType="textAutoComplete"-->
-        <!--android:textColor="@color/textPrimary"/>-->
+    <AutoCompleteTextView
+        android:id="@+id/feeling_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"
+        android:textColor="@color/textPrimary"
+        android:theme="@style/Autocomplete"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
