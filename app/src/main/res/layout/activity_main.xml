@@ -22,6 +22,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/speech_bubble"
+                    android:layout_centerHorizontal="true" />
+
                 <TextView
                     android:id="@+id/welcome_message"
                     android:layout_width="wrap_content"
@@ -30,12 +36,9 @@
                     android:paddingTop="16dp"
                     android:textColor="@color/textPrimary"
                     android:textSize="24sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
                     android:text="@string/how_do_you_feel" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/speech_bubble_wide" />
 
             </RelativeLayout>
 
@@ -44,6 +47,7 @@
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="-50dp"
                 android:src="@drawable/cat"
                 android:layout_centerInParent="true"/>
 
