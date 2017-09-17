@@ -43,50 +43,43 @@
                     android:text="@string/how_do_you_feel" />
 
             </RelativeLayout>
-            
-            <LinearLayout
-                android:id="@+id/reply_container"
-                android:layout_width="match_parent"
+
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <Button
-                    android:id="@+id/backBtn"
-                    android:onClick="goBack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="back"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:padding="16dp"
-                    android:layout_marginBottom="5dp"
-                    android:id="@+id/remark"/>
-                    android:id="@+id/remark"
-                    android:visibility="gone"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:padding="16dp"
-                    android:id="@+id/suggestion"/>
-                    android:id="@+id/suggestion"
-                    android:visibility="gone"/>
-
-            </LinearLayout>
+                android:text="@string/go_back"
+                android:onClick="showFeelingInputs" />
 
             <ImageView
                 android:id="@+id/cat"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="-50dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/happy_cat"
                 android:layout_centerInParent="true"/>
+
+            <LinearLayout
+                android:id="@+id/reply_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="16dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/remark" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="16dp"
+                    android:id="@+id/suggestion" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,7 +87,7 @@
                 android:padding="16dp"
                 android:textColor="@color/textPrimary"
                 android:id="@+id/feeling_input_label"
-                android:text="Type an adjective or emotion" />
+                android:text="@string/type_emotion" />
 
             <AutoCompleteTextView
                 android:id="@+id/feeling_input"
@@ -104,12 +97,6 @@
                 android:textColor="@color/textPrimary"
                 android:theme="@style/Autocomplete"/>
 
-            <com.example.android.petcbt.ExpandedListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:padding="0px"
-                android:id="@+id/emotion_list" />
 
         </LinearLayout>
 
