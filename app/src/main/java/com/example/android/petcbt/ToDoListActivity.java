@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 public class ToDoListActivity extends AppCompatActivity {
 
@@ -61,8 +62,16 @@ public class ToDoListActivity extends AppCompatActivity {
         String mScore = mPrefs.getString("score", "0");
         score = Integer.parseInt(mScore);
 
-
-
+        // load strings
+        SharedPreferences mPrefsTodo = getSharedPreferences("todos_to_be_added", 0);
+        SharedPreferences.Editor mPrefsTodoEditor = mPrefsTodo.edit();
+        // iterate over all
+        Map<String, ?> keys = mPrefsTodo.getAll();
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+            todos.add(entry.getKey());
+        }
+        // delete all
+        mPrefsTodoEditor.clear().commit();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
