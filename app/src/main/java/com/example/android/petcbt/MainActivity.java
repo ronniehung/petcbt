@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,11 +74,20 @@ public class MainActivity extends AppCompatActivity {
         feelingInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String feeling = allWords.get(i);
+
+                // find the index in the real array
+                String selected = (String) adapterView.getItemAtPosition(i);
+                int truePos = allWords.indexOf(selected);
+
+                String feeling = allWords.get(truePos);
+
                 String quality = statementsToQualities.get(feeling);
                 String remark = statementsToRemarks.get(feeling);
                 String suggestion = statementsToSuggestions.get(feeling);
                 String todo = statementsToTodos.get(feeling);
+
+                Log.d("####", "feeling: " + feeling);
+                Log.d("####", "remark: " + remark);
 
                 remarkText.setText(remark);
                 suggestionText.setText(suggestion);
