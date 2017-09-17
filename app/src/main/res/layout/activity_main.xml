@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.example.android.petcbt.MainActivity">
 
     <RelativeLayout
@@ -18,27 +19,32 @@
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingTop="16dp"
+            android:text="How are you feeling right now?"
             android:textColor="@color/textPrimary"
-            android:textSize="24sp"
-            android:text="How are you feeling right now?" />
+            android:textSize="24sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/speech_bubble_300px"/>
-    </RelativeLayout>
+            android:src="@drawable/speech_bubble_300px"
+            android:layout_alignStart="@+id/cat" />
 
-    <ImageView
+        <ImageView
         android:id="@+id/cat"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:src="@drawable/cat"/>
+        android:src="@drawable/cat"
+            android:layout_centerInParent="true"/>
+        <!--android:layout_gravity="center"-->
+
+    </RelativeLayout>
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:paddingLeft="16dp"
         android:textColor="@color/textPrimary"
         android:text="Type an adjective or emotion"/>
 
