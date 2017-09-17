@@ -44,9 +44,10 @@
 
             </RelativeLayout>
             
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,9 +59,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/suggestion"/>
 
+            </LinearLayout>
 
-            </RelativeLayout>
-            
             <ImageView
                 android:id="@+id/cat"
                 android:layout_width="300dp"
@@ -75,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textColor="@color/textPrimary"
-                android:text="Type an adjective or emotion"/>
+                android:id="@+id/feeling_input_label"
+                android:text="Type an adjective or emotion" />
 
             <AutoCompleteTextView
                 android:id="@+id/feeling_input"

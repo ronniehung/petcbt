@@ -1,5 +1,7 @@
 package com.example.android.petcbt;
 
+import java.util.HashMap;
+
 /**
  * Created by ronniehung on 2017-09-16.
  */
@@ -32,6 +34,7 @@ public class Cat {
 
     String getSuggestionFromEmotionKeyWord(String emotionKeyWord) {
         // returns value paired with given emotionKeyWord in hashmap that maps from suggestionType to a suggestion String
-        return this.emotionKeyWordToSuggestion.get(suggestionType);
+//        return this.emotionKeyWordToSuggestion.get(suggestionType);
+        return "Foo";
     }
 }
