@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,9 @@ public class ToDoListActivity extends AppCompatActivity {
 
     private ArrayList<String> todos;
     private ArrayAdapter<String> adapter;
+    private int points;
+    private TextView scoreboard;
+    private final static int TODO_POINT_VALUE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class ToDoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_to_do_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         todos = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this,
@@ -63,6 +69,26 @@ public class ToDoListActivity extends AppCompatActivity {
         todoListView.setDivider(null);
         todoListView.setDividerHeight(0);
         todoListView.setAdapter(adapter);
+
+        todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                todos.remove(i);
+                adapter.notifyDataSetChanged();
+                points += TODO_POINT_VALUE;
+                updateScoreboard();
+
+            }
+        });
+
+        points = 0;
+        scoreboard = (TextView) findViewById(R.id.scoreboard);
+        updateScoreboard();
+    }
+
+    void updateScoreboard() {
+        scoreboard.setText(Integer.valueOf(points).toString());
     }
 
 
