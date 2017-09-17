@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -74,6 +75,27 @@ public class ToDoListActivity extends AppCompatActivity {
                 points += TODO_POINT_VALUE;
                 updateScoreboard();
 
+            }
+        });
+
+        CheckBox checkedItem = (CheckBox) findViewById(R.id.toDoItem);
+        checkedItem.setOnClickListener(new AdapterView.OnClickListener() {
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                todos.remove(i);
+//                adapter.notifyDataSetChanged();
+//                points += TODO_POINT_VALUE;
+//                updateScoreboard();
+//
+//            }
+
+
+            @Override
+            public void onClick(View view) {
+                todos.remove(i);
+                adapter.notifyDataSetChanged();
+                points += TODO_POINT_VALUE;
+                updateScoreboard();
             }
         });
 
