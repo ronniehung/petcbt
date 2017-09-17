@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     void setCatEmotionToPositive() {
         catView = (ImageView) findViewById(R.id.cat);
-        catView.setImageResource(R.drawable.cat);
+        catView.setImageResource(R.drawable.happy_cat);
     }
 
     void setCatEmotionToNegative() {
