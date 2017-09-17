@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeMessageContainer.setVisibility(View.GONE);
 
         replyContainer.setVisibility(View.VISIBLE);
+        backButton.setVisibility(View.VISIBLE);
     }
 
     public void showFeelingInputs(View v) {
@@ -98,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeMessageContainer.setVisibility(View.VISIBLE);
 
         replyContainer.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
 
     }
 

@@ -29,7 +29,7 @@ public class ToDoListActivity extends AppCompatActivity {
 
         todos = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this,
-                R.layout.emotion_list_autocomplete_item, todos);
+                R.layout.todo_list_item, todos);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
