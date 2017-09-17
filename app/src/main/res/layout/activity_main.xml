@@ -53,17 +53,19 @@
                     android:id="@+id/backBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<---"/>
+                    android:text="back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/remark"/>
+                    android:id="@+id/remark"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/suggestion"/>
+                    android:id="@+id/suggestion"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
