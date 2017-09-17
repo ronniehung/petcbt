@@ -65,6 +65,8 @@
                     android:padding="16dp"
                     android:layout_marginBottom="5dp"
                     android:id="@+id/remark"/>
+                    android:id="@+id/remark"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,6 +74,8 @@
                     android:background="@android:color/white"
                     android:padding="16dp"
                     android:id="@+id/suggestion"/>
+                    android:id="@+id/suggestion"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
